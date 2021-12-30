@@ -1,4 +1,4 @@
-CC = gcc
+CC = musl-gcc
 CFLAGS = -std=c17                                \
          -nostdlib                               \
          -static                                 \
@@ -27,7 +27,6 @@ CFLAGS = -std=c17                                \
 all: clean build
 
 clean:
-	-rm -f *.o
 	-rm -f *.su
 	-rm -f hello
 
