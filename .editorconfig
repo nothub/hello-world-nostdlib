@@ -10,6 +10,9 @@ trim_trailing_whitespace = true
 [*.c]
 indent_size = 4
 
+[*.s]
+indent_size = 2
+
 [*.md]
 max_line_length = 9001
 trim_trailing_whitespace = false

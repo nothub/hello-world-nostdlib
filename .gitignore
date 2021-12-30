@@ -4,11 +4,7 @@
 !*/
 
 # git
-!/**/.gitkeep
 !/.gitignore
-
-# github
-!/.github/**
 
 # code
 !/*.c
@@ -19,10 +15,6 @@
 
 # docs
 !/*.md
-
-# docker
-!/Dockerfile
-!/docker-compose.yml
 
 # misc
 !/.editorconfig

@@ -23,6 +23,10 @@ CFLAGS = -std=c17                                \
          -Wdouble-promotion                      \
          -Wno-unused-parameter
 
+REQUIRED_BINS := $(CC) strip
+$(foreach bin,$(REQUIRED_BINS),\
+    $(if $(shell command -v $(bin) 2> /dev/null),$(),$(error please install missing build requirement: `$(bin)`)))
+
 .PHONY: all
 all: clean build
 
