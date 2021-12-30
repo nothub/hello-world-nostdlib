@@ -2,16 +2,15 @@ CC = musl-gcc
 CFLAGS = -std=c17                                \
          -nostdlib                               \
          -static                                 \
-         -ffreestanding                          \
          -s                                      \
          -Os                                     \
          -fstack-usage                           \
+         -ffreestanding                          \
+         -fdata-sections                         \
+         -ffunction-sections                     \
          -fno-common                             \
          -fno-unwind-tables                      \
          -fno-asynchronous-unwind-tables         \
-         -fno-stack-protector                    \
-         -fdata-sections                         \
-         -ffunction-sections                     \
          -Wl,-n,-N,--gc-sections,--build-id=none \
          -Wall                                   \
          -Wextra                                 \
