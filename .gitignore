@@ -12,6 +12,7 @@
 
 # code
 !/*.c
+!/*.s
 
 # build
 !/Makefile
