@@ -32,5 +32,5 @@ clean:
 	-rm -f hello
 
 build:
-	$(CC) $(CFLAGS) hello.s hello.c -o hello
+	$(CC) $(CFLAGS) lib_64.s hello.c -o hello
 	strip -R .comment hello
