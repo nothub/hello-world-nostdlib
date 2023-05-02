@@ -22,17 +22,11 @@ CFLAGS = -std=c17                                \
          -Wdouble-promotion                      \
          -Wno-unused-parameter
 
-REQUIRED_BINS := $(CC) strip
-$(foreach bin,$(REQUIRED_BINS),\
-    $(if $(shell command -v $(bin) 2> /dev/null),$(),$(error please install missing build requirement: `$(bin)`)))
+hello: lib_64.s hello.c
+	$(CC) $(CFLAGS) $^ -o $@
+	strip -R .comment $@
 
-.PHONY: all
-all: clean build
-
-clean:
-	-rm -f *.su
-	-rm -f hello
-
-build:
-	$(CC) $(CFLAGS) lib_64.s hello.c -o hello
-	strip -R .comment hello
+.PHONY: container
+container: hello
+	docker build -t "n0thub/hello" .
+	docker images --filter=reference='n0thub/hello' --format "{{.Size}}"
